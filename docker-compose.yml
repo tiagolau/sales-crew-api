@@ -4,8 +4,8 @@ services:
   image: ghcr.io/tiagolau/sales-crew-api:latest
   restart: unless-stopped
   environment:
-    - PORT=8000
-    - OPENAI_API_KEY=${OPENAI_API_KEY}
+    PORT: 8000
+    OPENAI_API_KEY: ${OPENAI_API_KEY}
   networks:
     - traefik-public
   labels:
