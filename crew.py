@@ -1,6 +1,21 @@
 from crewai import Agent, Task, Crew, Process
-from langchain_community.tools import DuckDuckGoSearchRun
+from langchain.tools import tool
 import os
+
+# --- Custom Tool Definition ---
+class SearchTools:
+    @tool("Search the internet")
+    def search_internet(query: str):
+        """Useful to search the internet about a a given topic and return relevant news."""
+        # MOCK IMPLEMENTATION TO FIX CRASH
+        # Once we have an API Key (Perplexity/Serper), we replace this logic.
+        return f"""
+        [SIMULATED SEARCH RESULT for: {query}]
+        Title: High Turnover Costs Companies Billions
+        Source: Business Insider (Simulated)
+        Summary: A new report shows that replacing an employee costs 2x their annual salary. Companies are investing more in retention.
+        Link: https://www.businessinsider.com/turnover-costs-2024
+        """
 
 class SalesCrew:
     def __init__(self, client_name, pain_points, meeting_date, company_name):
@@ -11,7 +26,7 @@ class SalesCrew:
 
     def run(self):
         # 1. Tools
-        search_tool = DuckDuckGoSearchRun()
+        search_tool = SearchTools.search_internet
 
         # 2. Agents
         researcher = Agent(
