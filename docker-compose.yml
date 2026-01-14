@@ -2,10 +2,9 @@ version: '3.8'
 
 services:
   sales-crew-api:
-    container_name: sales_crew_api
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/tiagolau/sales-crew-api:latest
+    # container_name is not supported in Swarm/some Portainer modes, removing it to be safe
+    # container_name: sales_crew_api 
     ports:
       - "8000:8000"
     environment:
