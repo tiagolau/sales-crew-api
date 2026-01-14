@@ -25,7 +25,8 @@ class SalesCrew:
         self.company_name = company_name
 
     def run(self):
-        # 1. Tools
+        # 1. Tools (Fix: Instantiate the tool properly)
+        # When using the @tool decorator, the function itself is the tool, but we need to ensure it's passed correctly.
         search_tool = SearchTools.search_internet
 
         # 2. Agents
