@@ -9,12 +9,12 @@ services:
   networks:
     - traefik-public
   labels:
-    - "traefik.enable=true"
-    - "traefik.http.routers.sales-crew.rule=Host(`api-torre.rhinocrm.com.br`)"
-    - "traefik.http.routers.sales-crew.entrypoints=websecure"
-    - "traefik.http.routers.sales-crew.tls=true"
-    - "traefik.http.routers.sales-crew.tls.certresolver=levin"
-    - "traefik.http.services.sales-crew.loadbalancer.server.port=8000"
+    traefik.enable: "true"
+    traefik.http.routers.sales-crew.rule: "Host(`api-torre.rhinocrm.com.br`)"
+    traefik.http.routers.sales-crew.entrypoints: "websecure"
+    traefik.http.routers.sales-crew.tls: "true"
+    traefik.http.routers.sales-crew.tls.certresolver: "levin"
+    traefik.http.services.sales-crew.loadbalancer.server.port: "8000"
 
 networks:
   traefik-public:
